@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espécies Nativas dos Oceanos - Pará</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://img.freepik.com/fotos-gratis/vista-do-oceano-ondulado-ou-da-agua-do-mar_23-2150869898.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            color: white;
+        }
+
+        .pokedex {
+            background-color: rgba(0, 70, 140, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 800px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .search-bar {
+            margin-bottom: 20px;
+        }
+
+        .search-bar input {
+            padding: 10px;
+            font-size: 1em;
+            width: 80%;
+            max-width: 400px;
+            border: 2px solid #ffffff;
+            border-radius: 5px;
+            background-color: #ffffff;
+            color: #000;
+        }
+
+        .species-card {
+            background-color: rgba(0, 100, 180, 0.9);
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: block;
+        }
+
+        .species-images {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+
+        .species-images img {
+            width: 100px;
+            height: 100px;
+            margin: 5px;
+            border-radius: 5px;
+        }
+
+        .species-card h2 {
+            font-size: 1.5em;
+            margin: 10px 0;
+            color: #ffffff;
+        }
+
+        .species-card p {
+            font-size: 1em;
+            color: #ffffff;
+        }
+
+        .no-results {
+            display: none;
+            color: red;
+            font-size: 1.2em;
+        }
+
+        /* Estilo do formulário de adicionar imagem */
+        .add-image-form {
+            margin-top: 20px;
+            background-color: rgba(0, 60, 130, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+        }
+
+        .add-image-form input {
+            padding: 10px;
+            margin: 5px 0;
+            width: calc(100% - 20px);
+            max-width: 400px;
+            border: 2px solid #ffffff;
+            border-radius: 5px;
+            background-color: #ffffff;
+            color: #000;
+        }
+
+        .add-image-form button {
+            padding: 10px;
+            background-color: #0055ff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .add-image-form button:hover {
+            background-color: #0033aa;
+        }
+
+        .success-message {
+            color: green;
+            margin-top: 10px;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="pokedex">
+        <h1>Espécies Nativas dos Oceanos - Pará</h1>
+
+        <!-- Barra de Pesquisa -->
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Procure uma espécie..." onkeyup="searchSpecies()">
+        </div>
+
+        <!-- Mensagem para quando não houver resultados -->
+        <div class="no-results" id="noResults">Nenhuma espécie encontrada</div>
+
+        <!-- Lista de cards de espécies -->
+        <div id="speciesList">
+            <!-- Card do Peixe-Boi -->
+            <div class="species-card" data-name="peixe-boi">
+                <h2>Peixe-Boi Marinho</h2>
+                <div class="species-images">
+                    <img src="https://www.infoescola.com/wp-content/uploads/2010/05/peixe-boi_692485741.jpg" alt="Peixe-Boi">
+                    <img src="https://www.icmbio.gov.br/apacostadoscorais/images/stories/destaques/peixe_boi/SAM_1574_foto_Luiz_Lacerda.JPG" alt="Peixe-Boi Submerso">
+                    <img src="https://conteudo.imguol.com.br/c/noticias/be/2016/05/17/17mai2016---um-peixe-boi-vai-a-superficie-para-respirar-o-mamifero-marinho-e-um-primo-do-elefante-na-agua-grande-e-cinza-mas-equipado-com-barbatanas-e-rabo-achatado-ao-inves-de-tromba-e-pernas-fortes-1463489402841_1200x799.jpg" alt="Peixe-Boi Nadando">
+                </div>
+                <p><strong>Tipo:</strong> Mamífero Aquático</p>
+                <p><strong>Altura:</strong> 3.0 m</p>
+                <p><strong>Peso:</strong> Até 450 kg</p>
+                <p><strong>Descrição:</strong> O peixe-boi é um mamífero aquático encontrado em águas salobras e costeiras. Sua alimentação é composta principalmente por vegetação aquática.</p>
+            </div>
+
+            <!-- Card do Tubarão-Lixa -->
+            <div class="species-card" data-name="tubarao-lixa">
+                <h2>Tubarão-Lixa</h2>
+                <div class="species-images">
+                    <img src="https://mergulholivre.com.br/wp-content/uploads/2023/07/Tubarao-Lixa-Peixe-de-agua-salgada-foto-4.webp" alt="Tubarão-Lixa">
+                    <img src="https://lupa1.correiobraziliense.com.br/uploads/imagens/whatsapp-image-2021-12-26-at-15-44-30-1640547301.jpeg" alt="Tubarão-Lixa">
+                    <img src="https://revistapesquisa.fapesp.br/wp-content/uploads/2022/05/012-017_Notas_316-6-1140.jpg" alt="Tubarão-Lixa Nadando">
+                </div>
+                <p><strong>Tipo:</strong> Peixe Cartilaginoso</p>
+                <p><strong>Comprimento:</strong> Até 4,3 m</p>
+                <p><strong>Peso:</strong> Até 110 kg</p>
+                <p><strong>Descrição:</strong> O tubarão-lixa é encontrado em águas costeiras e recifes de corais, sendo conhecido por sua pele áspera e hábitos noturnos de caça.</p>
+            </div>
+
+            <!-- Card da Arraia-Ticonha -->
+            <div class="species-card" data-name="arraia-ticonha">
+                <h2>Arraia-Ticonha</h2>
+                <div class="species-images">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTidpal9imxL6WyRh5v5b9-dRPcKtTuAwfZSA&s" alt="Arraia-Ticonha">
+                    <img src="https://s2-g1.glbimg.com/siruD0lJwVJARDaLLO8e73jgVVI=/0x0:768x1024/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2023/q/a/LhzHTCTVSiCif9RcQEEQ/raia-.jpg" alt="Arraia-Ticonha Submersa">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Rhinoptera_brasiliensis.jpg" alt="Arraia-Ticonha Nadando">
+                </div>
+                <p><strong>Tipo:</strong> Peixe Cartilaginoso</p>
+                <p><strong>Comprimento:</strong> Até 2,5 m</p>
+                <p><strong>Peso:</strong> Até 150 kg</p>
+                <p><strong>Descrição:</strong> A arraia-ticonha é uma espécie de peixe cartilaginoso que vive no fundo do mar, conhecida por sua cauda longa e espinhosa.</p>
+            </div>
+        </div>
+
+        <!-- Formulário para adicionar imagem -->
+        <div class="add-image-form">
+            <h2>Adicionar imagem de espécie</h2>
+            <input type="text" id="speciesName" placeholder="Nome da espécie (ex: peixe-boi)">
+            <input type="text" id="imageUrl" placeholder="URL da imagem">
+            <button onclick="addImage()">Adicionar Imagem</button>
+            <div id="message"></div>
+        </div>
+    </div>
+
+    <script>
+        function searchSpecies() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let speciesCards = document.getElementsByClassName('species-card');
+            let noResults = document.getElementById('noResults');
+            let found = false;
+
+            for (let i = 0; i < speciesCards.length; i++) {
+                let speciesName = speciesCards[i].getAttribute('data-name');
+                if (speciesName.includes(input)) {
+                    speciesCards[i].style.display = 'block';
+                    found = true;
+                } else {
+                    speciesCards[i].style.display = 'none';
+                }
+            }
+
+            if (!found) {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+            }
+        }
+
+        function addImage() {
+            let speciesName = document.getElementById('speciesName').value.toLowerCase();
+            let imageUrl = document.getElementById('imageUrl').value;
+            let messageDiv = document.getElementById('message');
+            let speciesCards = document.getElementsByClassName('species-card');
+            let speciesFound = false;
+
+            for (let i = 0; i < speciesCards.length; i++) {
+                if (speciesCards[i].getAttribute('data-name') === speciesName) {
+                    let imagesDiv = speciesCards[i].querySelector('.species-images');
+                    let newImage = document.createElement('img');
+                    newImage.src = imageUrl;
+                    newImage.alt = speciesName;
+                    imagesDiv.appendChild(newImage);
+                    speciesFound = true;
+                    messageDiv.innerHTML = '<p class="success-message">Imagem adicionada com sucesso!</p>';
+                    break;
+                }
+            }
+
+            if (!speciesFound) {
+                messageDiv.innerHTML = '<p class="error-message">Espécie não encontrada.</p>';
+            }
+        }
+    </script>
+</body>
+</html>
